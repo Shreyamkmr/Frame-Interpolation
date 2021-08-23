@@ -12,11 +12,11 @@ import io
 
 app = Flask(__name__)
 PEOPLE_FOLDER = os.path.join('static','eg')
-TEMP_FOLDER = os.path.join('output')
+#TEMP_FOLDER = os.path.join('output')
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
-app.config['TEMP_FOLDER'] = TEMP_FOLDER
+#app.config['TEMP_FOLDER'] = TEMP_FOLDER
 #run_with_ngrok(app)
 
 @app.route('/')
@@ -29,16 +29,16 @@ def index():
 def prediction():
   i1 = request.files['img1']
 
-  i1.save(os.path.join(app.config['TEMP_FOLDER'],"I0_0.png"))
+  i1.save(os.path.join('static','I0_0.png'))
   
   i2 = request.files['img2']
 
-  i2.save(os.path.join(app.config['TEMP_FOLDER'],"I0_1.png"))
-  cmd1 =['python3', 'inference_img.py', '--img', 'output/I0_0.png', 'output/I0_1.png']
+  i2.save(os.path.join('static','I0_1.png'))
+  cmd1 =['python3', 'inference_img.py', '--img', 'static/I0_0.png', 'static/I0_1.png']
   #make1 = subprocess.call("python3 inference_img.py --img I0_0.png I0_1.png",shell=True)
   make1=subprocess.Popen(cmd1).wait()
   
-  make2 = subprocess.call("ffmpeg -y -r 10 -f image2 -i output/img%d.png -s 448x256 -vf \"split[s0][s1];[s0]palettegen=stats_mode=single[p];[s1][p]paletteuse=new=1\" static/eg/slomo.gif",shell=True)
+  make2 = subprocess.call("ffmpeg -y -r 10 -f image2 -i static/img%d.png -s 448x256 -vf \"split[s0][s1];[s0]palettegen=stats_mode=single[p];[s1][p]paletteuse=new=1\" static/eg/slomo.gif",shell=True)
 
   
   gifval = os.path.join(app.config['UPLOAD_FOLDER'],'slomo.gif')
