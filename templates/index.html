@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>base</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	function showDiv() {
+   document.getElementById('load').style.display = "block";
+   }</script>
+	<link rel="stylesheet" type="text/css" href="static/eg/style.css" media=”screen” />
+	
+</head>
+<body>
+
+	<h1 align=center>Welcome to Real Time Image Interpolation App</h1>
+	<p align=center>Developed By <a href="https://github.com/Shreyamkmr"> Shreyam</a>
+		Using The Paper<a href="https://arxiv.org/abs/2011.06294"> RIFE - Real Time Video Interpolation</a>
+		</p>
+	<center>
+	<img src="" alt="Upload 1st and Last Frame For Interpolation and get an output consist of 16 in between frames (gif)">
+	<div id="load" style="display:none;"><img src="static/eg/load.gif"><span>Now wait for some time (maybe more than 3 mins)</span></div>
+	<div id="content">
+	<form action="prediction" method="POST" enctype="multipart/form-data">
+		<br><br><br><br>
+		<label for="i1">First Frame: </label>
+		<input type="file" name="img1" id="i1"><br><br><br>
+		<label for="i2">Last Frame: </label>
+		<input type="file" name="img2" id="i2"><br><br><br>
+		<input type="submit" name="btn" value="Show Interpolation"  onclick="showDiv()">
+		 
+	</form>
+	<span></span>
+	<span> use Following Sample <a href="https://github.com/hzwer/arXiv2020-RIFE/tree/main/demo">Images(click here)</a> for Trial Run</span><br>
+	</div>
+	
+	</center>
+	
+	
+	
+	
+	
+<div class="column" align=center>
+    
+    <span style="width:30%" >Here's an Example:First Frame, Last Frame and the output respectively</span>
+    
+    
+  </div>
+  <div class="column" align=center>
+    <img src="static/eg/1.png" alt="Snow" style="width:30%" value="Input1"/>
+   
+    <img src="static/eg/2.png" alt="Forest" style="width:30%"value="Input2">
+    
+    <img src="static/eg/eg.gif" alt="Mountains" style="width:30%"value="Output">
+    
+  </div>
+  <div align=center>
+		
+		Rules:
+		<ul align= left>1.Use Actual Frames from a video (Not The sceenshot/screensnip ,due to change in aspect ratio between Frames.</ul><br>
+		<ul>2. It is a Computationally heavy Process, It will take considerable amount of time.</ul><br>
+		<ul>3. Use small resolution image for faster Output.</ul>
+		<br>
+		<p>Developed By <a href="https://github.com/Shreyamkmr"> Shreyam</a>
+		Using The Paper<a href="https://arxiv.org/abs/2011.06294"> RIFE - Real Time Video Interpolation</a>
+		</p>
+	</div>
+  
+</div>
+
+</body>
+</html>

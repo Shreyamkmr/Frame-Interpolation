@@ -1,0 +1,47 @@
+name: my_env
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1
+  - _openmp_mutex=4.5
+  - ca-certificates=2021.7.5
+  - certifi=2021.5.30
+  - ld_impl_linux-64=2.35.1
+  - libffi=3.3
+  - libgcc-ng=9.3.0
+  - libgomp=9.3.0
+  - libstdcxx-ng=9.3.0
+  - ncurses=6.2
+  - openssl=1.1.1k
+  - pip=21.2.2
+  - python=3.8.2
+  - readline=8.1
+  - setuptools=52.0.0
+  - sqlite=3.36.0
+  - tk=8.6.10
+  - wheel=0.37.0
+  - xz=5.2.5
+  - zlib=1.2.11
+  - pip:
+    - charset-normalizer==2.0.4
+    - decorator==4.4.2
+    - filelock==3.0.12
+    - gdown==3.13.0
+    - idna==3.2
+    - imageio==2.9.0
+    - imageio-ffmpeg==0.4.4
+    - moviepy==1.0.3
+    - numpy==1.21.2
+    - opencv-python==4.5.3.56
+    - pillow==8.3.1
+    - proglog==0.1.9
+    - pysocks==1.7.1
+    - requests==2.26.0
+    - scipy==1.7.1
+    - six==1.16.0
+    - sk-video==1.1.10
+    - torch==1.4.0
+    - torchvision==0.5.0
+    - typing-extensions==3.10.0.0
+    - urllib3==1.26.6
+prefix: /home/osboxes/anaconda3/envs/my_env
