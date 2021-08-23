@@ -35,7 +35,7 @@ def prediction():
   #make1 = subprocess.call("python3 inference_img.py --img I0_0.png I0_1.png",shell=True)
   make1=subprocess.Popen(cmd1).wait()
   
-  make2 = subprocess.call("ffmpeg -y -r 10 -f image2 -i output/img%d.png -s 448x256 -vf \"split[s0][s1];[s0]palettegen=stats_mode=single[p];[s1][p]paletteuse=new=1\" static/eg/slomo.gif",shell=True)
+  make2 = subprocess.call("ffmpeg -y -r 10 -f image2 -i static/img%d.png -s 448x256 -vf \"split[s0][s1];[s0]palettegen=stats_mode=single[p];[s1][p]paletteuse=new=1\" static/eg/slomo.gif",shell=True)
 
   
   gifval = os.path.join(app.config['UPLOAD_FOLDER'],'slomo.gif')
