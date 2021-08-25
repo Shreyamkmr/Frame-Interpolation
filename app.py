@@ -69,7 +69,7 @@ def prediction():
     ratio = 0
     rthreshold = 0.02
     rmaxcycles = 8
-    modelDir = 'model'#os.path.join(app.config['MODEL_FOLDER'])
+    modelDir = '/app/model'#os.path.join(app.config['MODEL_FOLDER'])
 
 
     try:
