@@ -4,6 +4,7 @@ import torch
 import argparse
 from torch.nn import functional as F
 import warnings
+
 warnings.filterwarnings("ignore")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -40,7 +41,7 @@ except:
     print("Loaded v1.x HD model")
 model.eval()
 model.device()
-
+print("lansknfa hahaha")
 if args.img[0].endswith('.exr') and args.img[1].endswith('.exr'):
     img0 = cv2.imread(args.img[0], cv2.IMREAD_COLOR | cv2.IMREAD_ANYDEPTH)
     img1 = cv2.imread(args.img[1], cv2.IMREAD_COLOR | cv2.IMREAD_ANYDEPTH)
@@ -95,11 +96,23 @@ else:
             tmp.append(mid)
         tmp.append(img1)
         img_list = tmp
+        
 
-if not os.path.exists('static'):
-    os.mkdir('static')
-for i in range(len(img_list)):
-    if args.img[0].endswith('.exr') and args.img[1].endswith('.exr'):
-        cv2.imwrite('static/img{}.exr'.format(i), (img_list[i][0]).cpu().numpy().transpose(1, 2, 0)[:h, :w], [cv2.IMWRITE_EXR_TYPE, cv2.IMWRITE_EXR_TYPE_HALF])
-    else:
-        cv2.imwrite('static/img{}.png'.format(i), (img_list[i][0] * 255).byte().cpu().numpy().transpose(1, 2, 0)[:h, :w])
+print(type(img_list))
+
+def init_database():
+  from flask import current_app
+  with current_app.app_context():
+    print(current_app.config['UPLOAD_FOLDER'])
+    print("next top ")
+    if not os.path.exists('{TEMP_FOLDER}'):
+      os.mkdir('{TEMP_FOLDER}')
+    for i in range(len(img_list)):
+      if args.img[0].endswith('.exr') and args.img[1].endswith('.exr'):
+        cv2.imwrite('{TEMP_FOLDER}/img{}.exr'.format(i), (img_list[i][0]).cpu().numpy().transpose(1, 2, 0)[:h, :w], [cv2.IMWRITE_EXR_TYPE, cv2.IMWRITE_EXR_TYPE_HALF])
+        print("next2")
+      else:
+        cv2.imwrite(f"{folder}img{num}.png".format(folder=app.config['TEMP_FOLDER'],num=i), (img_list[i][0] * 255).byte().cpu().numpy().transpose(1, 2, 0)[:h, :w])
+        print("next ")
+    
+  return app

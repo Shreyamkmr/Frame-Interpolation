@@ -1,0 +1,5 @@
+{
+    "TEMP_FOLDER": "/static",
+    "UPLOAD_FOLDER": "static/eg",
+    "MODEL_FOLDER" : "/model"
+}
