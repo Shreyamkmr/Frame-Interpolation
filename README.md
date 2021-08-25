@@ -46,6 +46,6 @@ Upload and Submit:
 ![alt text](https://github.com/Shreyamkmr/Frame-Interpolation/blob/master/Im3.png)
 Wait and get the result:
 ![alt text](https://github.com/Shreyamkmr/Frame-Interpolation/blob/master/Im4.png)
-## App Link (Hosted On Heroku)
+## App Link (Hosted On Heroku)(if slug size is <500MB)
 [frame-interpolation.herokuapp.com](https://frame-interpolation.herokuapp.com)
 
